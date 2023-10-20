@@ -34,7 +34,7 @@
               gameLost = false;
                    
               // when a user clicks on a letter... this is where everything happens!
-              $(".letter").click( function () {
+              $(".letter").click( function ()) {
 
                   // check if the game has been won or lost
                   if (gameWon != true && gameLost != true) {
@@ -104,6 +104,8 @@
                     }
 
                     // add the letter to letters already tried
+                        triedLetters = triedLetters + letter;
+                        console.log("triedLetters is", triedLetters);
 
                   }
               });
