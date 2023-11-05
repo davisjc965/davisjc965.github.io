@@ -27,7 +27,7 @@
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    var marker = L.marker([34.685428, -77.13676]).addTo(map);
+    var marker = L.marker([34.687428, -77.13676]).addTo(map);
       marker.bindPopup("Where my first home is at");
     
     var circle = L.circle([34.787428, -77.22677], {
@@ -39,18 +39,25 @@
       circle.bindPopup("Where I grew up");
 
     var polygon = L.polygon([
-    [34.587428, -78.12677],
+    [34.587428, -77.12677],
     [34.787428, -77.42675],
     [34.887428, -77.52675],
     [34.987428, -77.62677],
   
     ]).addTo(map);
-       polygon.bindPopup("Downtown");
+       polygon.bindPopup("My grandpa's farm in 1925");
 
     var popup = L.popup()
     .setLatLng([34.987428, -77.92677])
-    .setContent("<b>Swanboro, NC</b><br>One of my favorite places to call home")
+    .setContent("<b>Eastern North Carolina</b><br>One of my favorite places to call home")
     .openOn(map);
+       var popup = L.popup();
+      	function onMapClick(e) {  popup
+        	.setLatLng(e.latlng)
+        	.setContent("You clicked the map at " + e.latlng.toString())
+        	.openOn(map);
+        	}
+        	map.on('click', onMapClick);
     </script>
 
   </body>
