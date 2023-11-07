@@ -76,7 +76,7 @@ var baseMaps = { "OpenStreetMap" : OSMTiles,
 
 
 		// let's add the Denver ACS data -- ##4 here
-$.getJSON('./acs_denver_2021.geoJSON', function(data) {
+$.getJSON('./acs_denver_2021.geojson', function(data) {
   acsDenver2021Layer = L.geoJSON(data).addTo(map);
 
   map.panTo(acsDenver2021Layer.getBounds().getCenter())
