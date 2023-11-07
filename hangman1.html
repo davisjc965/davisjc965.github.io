@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    <style>
+        /* Add some basic styling for better presentation */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #word-display {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #guess-input {
+            margin-top: 10px;
+        }
+        #feedback {
+            margin-top: 10px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hangman Game</h1>
+    
+    <div id="word-display">_ _ _ _ _</div>
+    
+    <label for="guess-input">Enter a letter: </label>
+    <input type="text" id="guess-input" maxlength="1">
+    <button onclick="checkGuess()">Guess</button>
+
+    <div id="feedback"></div>
+
+    <script>
+        // You can replace the word with a random word generation logic
+        const secretWord = "hangman";
+        let guessedWord = "_ _ _ _ _ _ _";
+
+        function updateDisplay() {
+            document.getElementById("word-display").innerText = guessedWord;
+        }
+
+        function checkGuess() {
+            const guess = document.getElementById("guess-input").value.toLowerCase();
+
+            if (guess.length === 1 && /^[a-z]$/.test(guess)) {
+                updateGuessedWord(guess);
+                updateDisplay();
+                document.getElementById("feedback").innerText = "";
+            } else {
+                document.getElementById("feedback").innerText = "Please enter a valid single letter.";
+            }
+
+            // You can add logic to check if the game is won or lost
+        }
+
+        function updateGuessedWord(guess) {
+            for (let i = 0; i < secretWord.length; i++) {
+                if (secretWord[i] === guess) {
+                    guessedWord = guessedWord.slice(0, i * 2) + guess + guessedWord.slice(i * 2 + 1);
+                }
+            }
+        }
+
+        // You can add more game logic as needed
+
+        // Initialize the display
+        updateDisplay();
+    </script>
+</body>
+</html>
