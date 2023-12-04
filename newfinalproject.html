@@ -96,6 +96,7 @@ var baseMaps = { "OpenStreetMap" : OSMTiles,
                                   d > 20 ? '#FEB24C' :
                                   d > 10 ? '#FED976' : 
                                            '#FFEDA0'; 
+			   if feature. properties. PCT_HISPANIC > 80 ? '#0033cc
                            styleReturn = {
 				fillColor	: answer,
 				weight 	: 1,
@@ -110,9 +111,12 @@ var baseMaps = { "OpenStreetMap" : OSMTiles,
 		// let's add the Denver ACS data -- ##4 here
 $.getJSON('./acs_denver_2021.geojson', function(data) {
   acsDenver2021Layer = L.geoJSON(data, { style: style1, onEachFeature : function(feature, layer) {
-				layer.bindPopup("Percent Hispanic: " + 
+		if (feature.properties.PCT_HISPANIC < 75) {		
+	  layer.bindPopup("Percent Hispanic: " + 
 feature.properties.PCT_HISPANIC + "%");
-				}
+		}else{layer.bindPopup("Possible Restauran Location<br>Percent Hispanic: " + 
+feature.properties.PCT_HISPANIC + "%");
+		}}
  }  ).addTo(map);
 
   map.panTo(acsDenver2021Layer.getBounds().getCenter())
@@ -157,6 +161,9 @@ legend.addTo(map);
         	.openOn(map);
         	}
         	map.on('click', onMapClick);
+		
+
+  
 
 
 	// end document ready
