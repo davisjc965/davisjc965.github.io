@@ -148,6 +148,13 @@ legend.onAdd = function (map) {
 };
 
 legend.addTo(map);
+		var popup = L.popup();
+      	function onMapClick(e) {  popup
+        	.setLatLng(e.latlng)
+        	.setContent("You clicked the map at " + e.latlng.toString())
+        	.openOn(map);
+        	}
+        	map.on('click', onMapClick);
 
 
 
@@ -160,7 +167,7 @@ legend.addTo(map);
 
 
 <div id="header">
-	<h1><a href="https://www.census.gov/programs-surveys/acs">Denver 2021 American Community Survey (Census) data</a></h1>
+	<h1><a href="https://www.census.gov/programs-surveys/acs">Denver 2021 American Community Survey Depicting Percent of Hispanic Popoulation (Census) data</a></h1>
 	<p>Data from <a href="https://denvergov.org/opendata/dataset/city-and-county-of-denver-american-community-survey-blk-grp-2017-2021">Denver Open Data</a></p>
 </div>
 <div id="map"></div>
