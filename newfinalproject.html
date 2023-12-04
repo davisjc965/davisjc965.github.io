@@ -137,6 +137,13 @@ var polygon = L.polygon([
   
     ]).addTo(map);
        polygon.bindPopup("Potential Restaurant Location");
+		 var circle = L.circle([39.704742, -105.039597], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 20
+    }).addTo(map);
+      circle.bindPopup("Location with most Potential");
 		
 
 		var legend = L.control({position: 'bottomright'});
