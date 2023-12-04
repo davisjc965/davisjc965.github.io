@@ -83,7 +83,11 @@ var baseMaps = { "OpenStreetMap" : OSMTiles,
 			   "Humanitarian OSM" : HOTOSMTiles,
               "OpenTopoMap" : OpenTopoMap };
 
-
+var polygon = L.polygon([
+    [39.710491, -105.053496],
+    [39.710623, -105.025681],
+    [39.696228, -105.052809],
+    [39.697549, -105.025853],
 
 		// the control let's the user turn on / off layers -- ##3 here
     var layerControl = L.control.layers(baseMaps, null).addTo(map);
