@@ -156,6 +156,14 @@ legend.addTo(map);
         	}
         	map.on('click', onMapClick);
 
+		
+var polygon = L.polygon([
+    [39.722244, -105.055759],
+    [39.66915, -105.054386],
+    [39.736857, -105.023975],
+    [39.660754, -105.003558],
+	.addTo(map);
+       polygon.bindPopup("Best Area for Hispanic Cuisine");
 
 
 	// end document ready
