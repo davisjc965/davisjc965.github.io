@@ -83,7 +83,10 @@ var baseMaps = { "OpenStreetMap" : OSMTiles,
 			   "Humanitarian OSM" : HOTOSMTiles,
               "OpenTopoMap" : OpenTopoMap };
 
-
+$("#restaurantSpecsBtn").click(function() {
+      alert("Restaurant Specs:\nSq Ft: 1000 sqft - 2000 sqft\nOccupancy: 100 - 250 ppl\nCuisine: Hispanic");
+    });
+  
 
 		// the control let's the user turn on / off layers -- ##3 here
     var layerControl = L.control.layers(baseMaps, null).addTo(map);
